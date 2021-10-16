@@ -1,41 +1,35 @@
 @extends('layouts.app')
 
+@section('title','Administración de usuarios')
+
+@section('card-title')
+<h5 class="card-title">Mostrando usuario</h5>
+<a class="btn btn-primary" href="{{ route('users.index') }}"> Regresar</a>
+@endsection
 
 @section('content')
 <div class="row">
-    <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
-            <h2> Show User</h2>
-        </div>
-        <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('users.index') }}"> Back</a>
-        </div>
-    </div>
-</div>
-
-
-<div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Name:</strong>
-            {{ $user->name }}
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Email:</strong>
-            {{ $user->email }}
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Roles:</strong>
-            @if(!empty($user->getRoleNames()))
-                @foreach($user->getRoleNames() as $v)
-                    <label class="badge badge-success">{{ $v }}</label>
-                @endforeach
-            @endif
-        </div>
+    <div class="col-md-12">
+        <table class="table mt-3">
+            <tr>
+                <th>Nombre:</th>
+                <th>{{ $user->name }}</th>
+            </tr>
+            <tr>
+                <th>Email:</th>
+                <th>{{ $user->email }}</th>
+            </tr>
+            <tr>
+                <th>Roles:</th>
+                <th>
+                    @if(!empty($user->getRoleNames()))
+                    @foreach($user->getRoleNames() as $v)
+                    <span class="badge badge-success">{{ $v }}</span>
+                    @endforeach
+                    @endif
+                </th>
+            </tr>
+        </table>
     </div>
 </div>
 @endsection

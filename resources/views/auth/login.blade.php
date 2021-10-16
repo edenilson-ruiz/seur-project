@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
+@section('title','Autenticación al Sistema de Expediente Único de Rehabilitación')
+
 @section('content')
-<div class="container">
+<div class="container mt-5 mb-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
